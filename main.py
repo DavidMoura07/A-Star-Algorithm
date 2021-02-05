@@ -1,24 +1,28 @@
+#!/usr/bin/python
+
+import sys
 import aStarModule as aStar
 import fileManager
 
-chart = [
-    [0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
-    [1, 1, 1, 0, 0, 1, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 1, 1],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-]
-
-origin = {"x": 0, "y": 0}
-destiny = {"x": 9, "y": 8}
-
 
 def main():
+
+    # Getting args from command line
+    fileName = sys.argv[1]
+    strOrigin = sys.argv[2]
+    strDestiny = sys.argv[3]
+    strOrigin = strOrigin.split(",")
+    strDestiny = strDestiny.split(",")
+
+    origin = {"x": int(strOrigin[0]), "y": int(strOrigin[1])}
+    destiny = {"x": int(strDestiny[0]), "y": int(strDestiny[1])}
+
+    chart = fileManager.readChart(fileName)
+
+    print("File name: ", fileName)
+    print("Origin: ", str(origin))
+    print("Destiny: ", str(destiny))
+    print('\n')
 
     coordinates = aStar.findPath(chart, origin, destiny)
 

@@ -1,6 +1,20 @@
 import constant
 
 
+def readChart(fileName):
+    chart = []
+    chartFile = open(fileName, 'r')
+    for x in chartFile:
+        line = str(x)
+        line = line.replace('\n', '')
+        line = line.split()
+        line = list(map(lambda x: int(x), line))
+        chart.append(line)
+
+    chartFile.close()
+    return chart
+
+
 def outputChart(chart, pathCoordinates):
     output = open("output.txt", "w")
 
