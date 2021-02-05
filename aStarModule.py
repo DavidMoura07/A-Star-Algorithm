@@ -3,6 +3,15 @@ import constant
 
 
 def findPath(chart, origin, destiny):
+
+    # validating origin and destiny
+    if chart[origin["x"]][origin["y"]] == constant.WALL:
+        print("You can't start at a wall")
+        return None
+    if chart[destiny["x"]][destiny["y"]] == constant.WALL:
+        print("Your destiny can't be a wall")
+        return None
+
     openedList = []
     closedList = []
 
