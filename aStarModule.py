@@ -1,6 +1,23 @@
 from point import Point
 import constant
 
+# MOCK for tests
+# chart = [
+#     [0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
+#     [0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
+#     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+#     [0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
+#     [1, 1, 1, 0, 0, 1, 0, 0, 0, 0],
+#     [0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
+#     [0, 0, 0, 0, 0, 0, 0, 0, 1, 1],
+#     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+#     [0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
+#     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+# ]
+
+# origin = {"x": 0, "y": 0}
+# destiny = {"x": 9, "y": 9}
+
 
 def findPath(chart, origin, destiny):
 
@@ -42,11 +59,12 @@ def findPath(chart, origin, destiny):
 
         # Adding children to openedList
         for childPoint in childrenPoints:
-            x = childPoint["x"]
-            y = childPoint["y"]
-            if chart[x][y] is not constant.WALL and childPoint not in closedList:
-                point = Point(x, y, origin, destiny, cheapest)
-                openedList.append(point)
+            if childPoint:
+                x = childPoint["x"]
+                y = childPoint["y"]
+                if chart[x][y] is not constant.WALL and childPoint not in closedList:
+                    point = Point(x, y, origin, destiny, cheapest)
+                    openedList.append(point)
 
     else:
         # No path available
