@@ -1,0 +1,3 @@
+PATH = 0
+WALL = 1
+BEST_PATH = "#"
