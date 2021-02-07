@@ -19,7 +19,7 @@ import constant
 # destiny = {"x": 9, "y": 9}
 
 
-def findPath(chart, origin, destiny):
+def find_path(chart, origin, destiny):
 
     # validating origin and destiny
     if chart[origin["x"]][origin["y"]] == constant.WALL:

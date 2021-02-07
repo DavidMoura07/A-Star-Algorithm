@@ -24,7 +24,7 @@ def main():
     print("Destiny: ", str(destiny))
     print('\n')
 
-    coordinates = aStar.findPath(chart, origin, destiny)
+    coordinates = aStar.find_path(chart, origin, destiny)
 
     if not coordinates:
         print("No path available")
